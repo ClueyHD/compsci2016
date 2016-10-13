@@ -158,7 +158,7 @@ smallprint = ax.text(
     'Total points: %s\nContains Ordnance Survey data\n$\copyright$ Crown copyright and database right 2013\nPlaque data from http://openplaques.org' % len(ldn_points),
     ha='right', va='bottom',
     size=4,
-    color='#555555',
+    color='#555555', 
     transform=ax.transAxes)
 
 # Draw a map scale
