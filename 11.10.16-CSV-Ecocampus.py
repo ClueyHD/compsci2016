@@ -1,6 +1,5 @@
 # EarthWatch Correction Code
 # 2016 Kyle Choi
-#uploatest
 
 import csv
 
