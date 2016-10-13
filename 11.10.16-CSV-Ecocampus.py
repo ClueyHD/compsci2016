@@ -3,11 +3,15 @@
 
 import csv
 
-data = open('magpie.csv')
+file_open = input("Please the filename of the document to be read by the program (e.g. magpie.csv)")
+
+data = open(file_open)
 data = csv.reader(data)
 data = list(data)
+
 count = 0
 names = []
+
 for i in data:
     if count == 0:
         count += 1
@@ -24,7 +28,7 @@ for c in names:
     print(c)
     a=c.split(" ")
     print(len(a))
-    if len(a) == 3 or 4:#duplicate name error checking
+    if len(a) == 3 or 4:# duplicate name error checking
         print("name error")
         if a[0] in a[1:]:
             name_inp = input("A first name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate? (y/n)")
