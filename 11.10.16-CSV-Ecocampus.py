@@ -20,6 +20,9 @@ for i in data:
         names.append(i[2])
         #print(i[2])
 
+def modify(words):
+
+
 """
 ideas - auto capitalise, correct names
 """
@@ -29,7 +32,7 @@ for c in names:
     a=c.split(" ")
     print(len(a))
     if len(a) == 3 or 4:# duplicate name error checking
-        print("name error")
+        print("possible name error")
         if a[0] in a[1:]:
             name_inp = input("A first name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate? (y/n)")
             if name_inp == "y":
@@ -37,13 +40,16 @@ for c in names:
                 name_conf = input("the new name is '"+c[(len(a[0])+1):]+"' is this correct?")
                 if name_conf == "y":
                     print(c[(len(a[0])+1):])
+                else:
+                    name_change = input("Please enter the name manually")
+                    print(name_change)
         elif a[-1] in a [:-2]:
             name_inp = input("A last name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate?")
             if name_inp == "y":
                 print(len(a[-1]))
                 name_conf = input("the new name is '" + c[:(len(a[-1])-1)] + "' is this correct?")
     elif len(a) >= 5:
-        name_inp = input("It seem '"+c+"' is an unusually large string, would you like to modify it?")
+        name_inp = input("It seems '"+c+"' is an unusually large string, would you like to modify it?")
         if name_inp == "y":
             print("friendzoned again")
     else:
