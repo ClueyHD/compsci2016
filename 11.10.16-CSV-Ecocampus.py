@@ -24,7 +24,7 @@ for i in data:
         #print(i[2])
 
 def name_adjust(original,correct):
-    confirm = input("Would you like the script to remember this name? (y/n)")
+    confirm = input("Would you like the script to remember '"+correct+"'? (y/n) ")
     if confirm == "y":
         names_storage.append(original)
         names_corrected.append(correct)
@@ -51,12 +51,12 @@ for c in names:
             if a[0] in a[1:]: # checks if first name is duplicated
                 var = True
                 while var:
-                    name_inp = input("A first name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate? (y/n)")
+                    name_inp = input("A first name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate? (y/n) ")
                     if name_inp == "y":
                         var1 = True
                         while var1:
                             print(len(a[0]))
-                            name_conf = input("the new name is '"+c[(len(a[0])+1):]+"' is this correct?")
+                            name_conf = input("the new name is '"+c[(len(a[0])+1):]+"' is this correct? ")
                             if name_conf == "y":
                                 print(c[(len(a[0])+1):])
                                 name_adjust(c,c[(len(a[0])+1):])
@@ -64,7 +64,7 @@ for c in names:
                                 var1 = False
                             elif name_conf == "n":
                                 name_change = input("Please enter the name manually")
-                                name_conf1 = input("the new name is '" + name_change + "' is this correct? (y/n)")
+                                name_conf1 = input("the new name is '" + name_change + "' is this correct? (y/n) ")
                                 if name_conf1 == "y":
                                     print(name_change)
                                     name_adjust(c,name_change)
@@ -73,23 +73,23 @@ for c in names:
                             elif name_adjust == "s":
                                 print("test")
                             else:
-                                print("I'm sorry that's not a valid entry, please enter one of the following without quotation marks, yes 'y', no 'n' or skip 's'")
+                                print("I'm sorry that's not a valid entry, please enter one of the following without quotation marks, yes 'y', no 'n' or skip 's' ")
                     elif name_inp == "n":
                         var = False
-                        name_conf = input("Would you like the script to remember '"+c+"'")
+                        name_conf = input("Would you like the script to remember '"+c+"' ")
                         if name_conf == "y":
                             print(c)
                             names_storage.append(c)
                             names_corrected.append(c)
                     else:
-                        print("I'm sorry that's not a valid entry, please enter one of the following without quotation marks, yes 'y' or no 'n'")
+                        print("I'm sorry that's not a valid entry, please enter one of the following without quotation marks, yes 'y' or no 'n' ")
 
 
             elif a[-1] in a [:-2]: # checks if last name is duplicated
-                name_inp = input("A last name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate? (y/n)")
+                name_inp = input("A last name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate? (y/n) ")
                 if name_inp == "y":
                     print(len(a[-1]))
-                    name_conf = input("the new name is '" + c[:(len(a[-1])-1)] + "' is this correct?")
+                    name_conf = input("the new name is '" + c[:(len(a[-1])-1)] + "' is this correct? ")
                     if name_conf == "y":
                         print(c[:(len(a[-1])-1)])
                         name_adjust(c,c[:(len(a[-1])-1)])
@@ -97,9 +97,16 @@ for c in names:
 
 
         elif len(a) >= 5:
-            name_inp = input("It seems '"+c+"' is an unusually large string, would you like to modify it?")
-            if name_inp == "y":
-                name_change=input("Please input a new name for this entry")
+            var = True
+            while var:
+                name_inp = input("It seems '"+c+"' is an unusually large string, would you like to modify it? (y/n) ")
+                if name_inp == "y":
+                    name_change=input("Please input a new name for this entry: ")
+                elif name_inp == "n":
+                    var = False
+                else:
+                    print("I'm sorry that's not a valid entry, please enter one of the following without quotation marks, yes 'y' or no 'n' ")
+
 
         else:
             print("Pass")
