@@ -2,6 +2,7 @@
 # 2016 Kyle Choi
 
 import csv
+import string
 
 count = 0
 names = []
@@ -40,7 +41,7 @@ for c in names:
         c=names_corrected[names_storage.index(c)]
         print(c)
     else:
-        #c=string.capwords(c)
+        capital=string.capwords(c)
         print(c)
         a=c.split(" ")
         print(len(a))
@@ -51,15 +52,15 @@ for c in names:
             if a[0] in a[1:]: # checks if first name is duplicated
                 var = True
                 while var:
-                    name_inp = input("A first name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate? (y/n) ")
+                    name_inp = input("A first name is repeated in: '"+b.join(a)+"' Would you like to remove the duplicate? (y/n/s) ")
                     if name_inp == "y":
                         var1 = True
                         while var1:
                             print(len(a[0]))
-                            name_conf = input("the new name is '"+c[(len(a[0])+1):]+"' is this correct? ")
+                            name_conf = input("the new name is '"+capital[(len(a[0])+1):]+"' is this correct? ")
                             if name_conf == "y":
                                 print(c[(len(a[0])+1):])
-                                name_adjust(c,c[(len(a[0])+1):])
+                                name_adjust(c,capital[(len(a[0])+1):])
                                 var = False
                                 var1 = False
                             elif name_conf == "n":
@@ -70,8 +71,6 @@ for c in names:
                                     name_adjust(c,name_change)
                                     var = False
                                     var1 = False
-                            elif name_adjust == "s":
-                                print("test")
                             else:
                                 print("I'm sorry that's not a valid entry, please enter one of the following without quotation marks, yes 'y', no 'n' or skip 's' ")
                     elif name_inp == "n":
@@ -81,6 +80,8 @@ for c in names:
                             print(c)
                             names_storage.append(c)
                             names_corrected.append(c)
+                    elif name_inp == "s":
+                        var = False
                     else:
                         print("I'm sorry that's not a valid entry, please enter one of the following without quotation marks, yes 'y' or no 'n' ")
 
