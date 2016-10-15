@@ -39,14 +39,15 @@ b = " "
 for c in names:
     if c in names_storage:
         c=names_corrected[names_storage.index(c)]
-        print(c)
+        #print(c)
     else:
         capital=string.capwords(c)
-        print(c)
+        #print(c)
+        c = c.replace('  ', ' ')
         a=c.split(" ")
-        print(len(a))
+        #print(len(a))
         if len(a) == 3 or 4: # duplicate name error checking
-            print("possible name error")
+            #print("possible name error")
 
 
             if a[0] in a[1:]: # checks if first name is duplicated
