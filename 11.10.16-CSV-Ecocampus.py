@@ -9,7 +9,7 @@ names = []
 names_storage = []
 names_corrected = []
 
-#file_open = input("Please the filename of the document to be read by the program (e.g. magpie.csv)")
+# file_open = input("Please the filename of the document to be read by the program (e.g. magpie.csv)")
 file_open = "C:\\Users\Kyle\PycharmProjects\compsci2016\sample_data\magpie.csv"
 
 data = open(file_open)
@@ -22,7 +22,7 @@ for i in data:
         headers = i
     else:
         names.append(i[2])
-        #print(i[2])
+        # print(i[2])
 
 def name_adjust(original,correct):
     confirm = input("Would you like the script to remember '"+correct+"'? (y/n) ")

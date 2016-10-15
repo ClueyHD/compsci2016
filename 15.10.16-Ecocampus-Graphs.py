@@ -38,7 +38,7 @@ data = list(data)
 
 print(colour.RED+"*DISCLAIMER* This software has not been tested by anyone but the writer themselves, therefore it should be considered BETA software and may contain bugs. "+colour.END)
 print(colour.RED+"This software is covered under the GPL, therefore the author takes no responsibility for any problems arising from the use of this software. "+colour.END)
-print(colour.RED+"I am not responsible for the destruction of your computer")
+print(colour.RED+"I am not responsible for the destruction of your computer"+colour.END)
 print(colour.GREEN+"Welcome to the Monash Ecocampus Data Analysis Program!"+colour.END)
 print(colour.UNDERLINE+"Your CSV contains the following columns: "+colour.END)
 for i in data[0]:
@@ -75,8 +75,8 @@ for c in names:
     else:
         name.append(c)
         counts.append(1)
+name = [element or "Not Defined" for element in name]
 #
-
 
 print(colour.GREEN + "What would you like to do with this data?" + colour.END)
 print("a: Plot a graph")
@@ -85,12 +85,6 @@ var = True
 while var:
     option = input("Please pick on option (a/b): ")
     if option == "a":
-        var1 = True
-        while var1:
-            option2 = input("Would you like to enable error checking for this data? ")
-            if option2 == "y":
-                print("okay m8")
-                var1 = False
         # Bar graph plotting
         print("Plotting graph... please wait")
         plotly.offline.plot({
