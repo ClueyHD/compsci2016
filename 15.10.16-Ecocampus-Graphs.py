@@ -2,7 +2,8 @@
 # 2016 Kyle Choi
 
 import csv
-
+import plotly
+from plotly.graph_objs import Bar, Layout
 
 names = []
 count = 0
@@ -21,15 +22,22 @@ for i in data:
         count += 1
         headers = i
     else:
-        names.append(i[11])
+        names.append(i[14])
 
 for c in names:
     if c in name:
         #count.append(name.index(c))
-        print(name.index(c))
-        counts.insert(name.index(c), counts[name.index(c)]+1)
+        c = c.replace('  ', ' ')
+        #print(name.index(c))
+        counts[name.index(c)] = int(counts[name.index(c)]+1)
+        #counts.insert(name.index(c), int(counts[name.index(c)]+1))
     else:
         name.append(c)
         counts.append(1)
-print(name)
-print(counts)
+#print(name)
+#print(counts)
+
+plotly.offline.plot({
+    "data": [Bar(x=name, y=counts)],
+    "layout": Layout(title="hello world")
+})
