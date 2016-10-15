@@ -1,10 +1,12 @@
 # Ecocampus Plotting Code
 # 2016 Kyle Choi
+
 print("Loading... please wait")
 import csv
 import plotly
 from plotly.graph_objs import Bar, Layout
 
+# yay colours
 class colour:
     PURPLE = '\033[95m'
     CYAN = '\033[96m'
@@ -16,6 +18,7 @@ class colour:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     END = '\033[0m'
+#
 
 # Set variables
 names = []
@@ -32,14 +35,18 @@ file_open = "data.csv"
 data = open(file_open)
 data = csv.reader(data)
 data = list(data)
+
+print(colour.RED+"*DISCLAIMER* This software has not been tested by anyone but the writer themselves, therefore it should be considered BETA software and may contain bugs. "+colour.END)
+print(colour.RED+"This software is covered under the GPL, therefore the author takes no responsibility for any problems arising from the use of this software. "+colour.END)
+print(colour.RED+"I am not responsible for the destruction of your computer")
 print(colour.GREEN+"Welcome to the Monash Ecocampus Data Analysis Program!"+colour.END)
 print(colour.UNDERLINE+"Your CSV contains the following columns: "+colour.END)
 for i in data[0]:
-    print(head,i)
+    print(str(head)+" '"+i+"'")
     head += 1
 var = True
 while var:
-    option1 = input("Please select a column to use in the program (1-"+str(head-1)+"): ")
+    option1 = input(colour.BLUE+"Please select a column to use in the program (1-"+str(head-1)+"): "+colour.END)
     try:
         if (1 <= int(option1) <= head-1):
             var = False
@@ -47,20 +54,21 @@ while var:
             print(colour.RED+"Sorry, that is not a valid number, please pick an integer between 1 and " + str(head - 1) + ": "+colour.END)
     except ValueError:
         print(colour.RED+"Sorry, that is not a valid character, please pick an integer between 1 and "+str(head-1)+": "+colour.END)
+
 # Take out headers & append data values to 'name'
 for i in data:
     if count == 0:
         count += 1
         headers = i
     else:
-        names.append(i[option1-1])
+        names.append(i[int(option1)-1])
 #
 
 # Core sorting code
 for c in names:
+    c = c.replace('  ', ' ')
     if c in name:
         # count.append(name.index(c))
-        c = c.replace('  ', ' ')
         # print(name.index(c))
         counts[name.index(c)] = int(counts[name.index(c)]+1)
         # counts.insert(name.index(c), int(counts[name.index(c)]+1))
@@ -77,13 +85,19 @@ var = True
 while var:
     option = input("Please pick on option (a/b): ")
     if option == "a":
-
+        var1 = True
+        while var1:
+            option2 = input("Would you like to enable error checking for this data? ")
+            if option2 == "y":
+                print("okay m8")
+                var1 = False
         # Bar graph plotting
         print("Plotting graph... please wait")
         plotly.offline.plot({
             "data": [Bar(x=name, y=counts)],
             "layout": Layout(title="'" + headers[14] + "' bar graph")
         })
+        var = False
         #
 
     elif option == 'b':
