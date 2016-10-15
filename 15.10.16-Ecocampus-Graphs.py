@@ -29,6 +29,7 @@ name = []
 counts = []
 headers = " "
 
+newcsv = "csv.csv"
 file_open = "data.csv"
 #
 
@@ -78,11 +79,12 @@ for c in names:
 name = [element or "Not Defined" for element in name]
 #
 
-print(colour.GREEN + "What would you like to do with this data?" + colour.END)
-print("a: Plot a graph")
-print("b: Export individual column to CSV")
+
 var = True
 while var:
+    print(colour.GREEN + "What would you like to do with this data?" + colour.END)
+    print("a: Plot a graph")
+    print("b: Export individual column to CSV")
     option = input("Please pick on option (a/b): ")
     if option == "a":
         # Bar graph plotting
@@ -96,8 +98,17 @@ while var:
 
     elif option == 'b':
         # Export to CSV
-        print("hello")
-
+        # Assuming res is a flat list
+        try:
+            with open(newcsv, "w", newline='') as csvout:
+                writer = csv.writer(csvout, lineterminator='\n')
+                writer.writerow([str(headers[int(option1)-1]),"count"])
+                rows = zip(name,counts)
+                for z in rows:
+                    writer.writerow(z)
+            var = False
+        except PermissionError:
+            print(colour.RED+"ERROR: It seems the CSV file you are trying to write to is already open in another program, please close it amd try again. "+colour.END)
 
 # print(name)
 # print(counts)
