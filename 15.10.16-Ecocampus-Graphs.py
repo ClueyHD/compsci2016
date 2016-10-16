@@ -18,7 +18,6 @@ class colour:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     END = '\033[0m'
-#
 
 # Set variables
 names = []
@@ -28,7 +27,6 @@ head = 1
 name = []
 counts = []
 headers = " "
-#
 
 print(colour.RED+"*DISCLAIMER* This software has not been tested by anyone but the writer themselves, therefore it should be considered BETA software and may contain bugs. "+colour.END)
 print(colour.RED+"This software is covered under the GPL, therefore the author takes no responsibility for any problems arising from the use of this software. "+colour.END)
@@ -69,21 +67,16 @@ for i in data:
         headers = i
     else:
         names.append(i[int(option1)-1])
-#
 
 # Core sorting code
 for c in names:
     c = c.replace('  ', ' ')
     if c in name:
-        # count.append(name.index(c))
-        # print(name.index(c))
         counts[name.index(c)] = int(counts[name.index(c)]+1)
-        # counts.insert(name.index(c), int(counts[name.index(c)]+1))
     else:
         name.append(c)
         counts.append(1)
 name = [element or "Not Defined" for element in name]
-#
 
 
 var = True
@@ -100,7 +93,6 @@ while var:
             "layout": Layout(title="'" + headers[14] + "' bar graph")
         })
         var = False
-        #
 
     elif option == 'b':
         # Export to CSV
@@ -125,8 +117,5 @@ while var:
                 print(colour.RED+"ERROR: That is not a valid file name, please make sure you are using valid characters in the filename and try again "+colour.YELLOW+'(\/:*?"<>| are not valid characters in Windows). '+colour.END)
     else:
         print(colour.RED+'ERROR: That is not a valid character, please enter "a" or "b" (no quotations)'+colour.END)
-
-# print(name)
-# print(counts)
 
 print("Done!")
