@@ -1,6 +1,6 @@
-# Ecocampus compsci2016
+# Ecocampus JMSS compsci2016 Tools
 
-These error checking scripts are designed to be used with Atlas of Living Australia data to make your life a little easier
+These error checking scripts are designed to be used with Atlas of Living Australia and Ecocampus data to make your life a little easier. 
 
 ## Usage
 
@@ -12,3 +12,4 @@ These error checking scripts are designed to be used with Atlas of Living Austra
 ## Credits
 
 Atlas of Living Australia
+Plotly
