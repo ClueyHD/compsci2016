@@ -47,3 +47,4 @@ Monash University
 
 ## Copyright
 
+'EarthWatch-NameCorrection.py', 'EcocampusAnalysis.py' & 'EcocampusAnalysis-NoColour.py' are covered under MIT License
