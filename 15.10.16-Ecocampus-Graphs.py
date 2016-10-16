@@ -50,7 +50,7 @@ var = True
 while var:
     option1 = input(colour.BLUE+"Please select a column to use in the program (1-"+str(head-1)+"): "+colour.END)
     try:
-        if (1 <= int(option1) <= head-1):
+        if 1 <= int(option1) <= head-1:
             var = False
         else:
             print(colour.RED+"ERROR: that is not a valid number, please pick an integer between 1 and " + str(head - 1) + ": "+colour.END)
@@ -101,8 +101,8 @@ while var:
                 try:
                     with open(newcsv, "w", newline='') as csvout:
                         writer = csv.writer(csvout, lineterminator='\n')
-                        writer.writerow([str(headers[int(option1)-1]),"count"])
-                        rows = zip(name,counts)
+                        writer.writerow([str(headers[int(option1)-1]), "count"])
+                        rows = zip(name, counts)
                         for z in rows:
                             writer.writerow(z)
                     var = False
