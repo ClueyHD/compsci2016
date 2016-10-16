@@ -24,8 +24,7 @@ head = 1
 headers = " "
 
 print(colour.RED+"*DISCLAIMER* This software has not been tested by anyone but the writer themselves, therefore it should be considered BETA software and may contain bugs. "+colour.END)
-print(colour.RED+"This software is covered under the GPL, therefore the author takes no responsibility for any problems arising from the use of this software. "+colour.END)
-print(colour.RED+"I am not responsible for the destruction of your computer. "+colour.END)
+print(colour.RED+"This software is covered under the MIT License, therefore the author takes no responsibility for any problems arising from the use of this software. "+colour.END)
 print(colour.GREEN+"Welcome to the Monash Ecocampus Data Analysis Program!"+colour.END)
 
 # prompt for filename of csv to be used + csv read in + error checking for a not found file

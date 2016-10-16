@@ -1,4 +1,4 @@
-# Ecocampus Plotting + Exporting Code (Monash Ecocampus Data Analysis Program)
+# Ecocampus Plotting + Exporting Code (Monash Ecocampus Data Analysis Program) NoColour Version
 # © Kyle Choi 2016
 
 print("Loading... please wait")
@@ -15,8 +15,7 @@ head = 1
 headers = " "
 
 print("*DISCLAIMER* This software has not been tested by anyone but the writer themselves, therefore it should be considered BETA software and may contain bugs. ")
-print("This software is covered under the GPL, therefore the author takes no responsibility for any problems arising from the use of this software. ")
-print("I am not responsible for the destruction of your computer. ")
+print("This software is covered under the MIT License, therefore the author takes no responsibility for any problems arising from the use of this software. ")
 print("Welcome to the Monash Ecocampus Data Analysis Program!")
 
 # prompt for filename of csv to be used + csv read in + error checking for a not found file

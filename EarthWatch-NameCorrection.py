@@ -1,5 +1,6 @@
 # EarthWatch Name Correction Code
 # © Kyle Choi 2016
+# Covered under MIT License
 
 import csv
 import string

@@ -19,6 +19,14 @@ They then prompt you to export the occurrence data to another csv file or plot i
 
 NOTE: the -NoColour script is for use in command Windows where colouring is not supported. 
 
+## Intro EarthWatch-NameCorrection.py
+
+This script can be used to eliminate bad name entries in EarthWatch Data. 
+It checks for double spaces and repeated first and last names. 
+
+NOTE: this script is incomplete and should be considered unstable. 
+Usage is same as Ecocampus scripts, but this does not need Plotly. 
+
 ## Usage EcocampusAnalysis.py & EcocampusAnalysis-NoColour.py
 
 1. Install Python 3.5 and the Plotly library
@@ -36,3 +44,6 @@ Plotly
 JMSS
 
 Monash University
+
+## Copyright
+
