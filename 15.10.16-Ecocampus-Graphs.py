@@ -113,5 +113,4 @@ while var:
                 print(colour.RED+"ERROR: That is not a valid file name, please make sure you are using valid characters in the filename and try again "+colour.YELLOW+'(\/:*?"<>| are not valid characters in Windows). '+colour.END)
     else:
         print(colour.RED+'ERROR: That is not a valid character, please enter "a" or "b" (no quotations)'+colour.END)
-
 print("Done!")
