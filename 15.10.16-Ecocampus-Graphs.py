@@ -1,31 +1,26 @@
-# Ecocampus Plotting Code
-# 2016 Kyle Choi
+# Ecocampus Plotting + Exporting Code (Monash Ecocampus Data Analysis Program)
+# © Kyle Choi 2016
 
 print("Loading... please wait")
 import csv
 import plotly
 from plotly.graph_objs import Bar, Layout
 
-# yay colours
+# define colour class
 class colour:
-    PURPLE = '\033[95m'
-    CYAN = '\033[96m'
-    DARKCYAN = '\033[36m'
     BLUE = '\033[94m'
     GREEN = '\033[92m'
     YELLOW = '\033[93m'
     RED = '\033[91m'
-    BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     END = '\033[0m'
 
-# Set variables
+# set variables
 names = []
-count = 0
-head = 1
-
 name = []
 counts = []
+count = 0
+head = 1
 headers = " "
 
 print(colour.RED+"*DISCLAIMER* This software has not been tested by anyone but the writer themselves, therefore it should be considered BETA software and may contain bugs. "+colour.END)
@@ -33,6 +28,7 @@ print(colour.RED+"This software is covered under the GPL, therefore the author t
 print(colour.RED+"I am not responsible for the destruction of your computer. "+colour.END)
 print(colour.GREEN+"Welcome to the Monash Ecocampus Data Analysis Program!"+colour.END)
 
+# prompt for filename of csv to be used + csv read in + error checking for a not found file
 var = True
 while var:
     try:
@@ -45,6 +41,7 @@ while var:
     except FileNotFoundError:
         print(colour.RED+"ERROR: that file does not exist, please check the filename and try again. "+colour.END)
 
+# print header options and prompt user for column selection + invalid character detection
 print(colour.UNDERLINE+"Your CSV contains the following columns:"+colour.END+" ")
 for i in data[0]:
     print(str(head)+" '"+i+"'")
@@ -60,7 +57,7 @@ while var:
     except ValueError:
         print(colour.RED+"ERROR: that is not a valid character, please pick an integer between 1 and "+str(head-1)+": "+colour.END)
 
-# Take out headers & append data values to 'name'
+# take out headers & append data values to 'name' list
 for i in data:
     if count == 0:
         count += 1
@@ -68,7 +65,7 @@ for i in data:
     else:
         names.append(i[int(option1)-1])
 
-# Core sorting code
+# core sorting code + double space removal + define blank elements as "Not Defined"
 for c in names:
     c = c.replace('  ', ' ')
     if c in name:
@@ -78,7 +75,7 @@ for c in names:
         counts.append(1)
 name = [element or "Not Defined" for element in name]
 
-
+# prompt user for what to do with data + invalid character detection
 var = True
 while var:
     print(colour.GREEN + "What would you like to do with this data?" + colour.END)
@@ -86,7 +83,7 @@ while var:
     print("b: Export individual column to CSV")
     option = input("Please pick on option (a/b): ")
     if option == "a":
-        # Bar graph plotting
+        # Bar graph plotting using Plotly
         print("Plotting graph... please wait")
         plotly.offline.plot({
             "data": [Bar(x=name, y=counts)],
@@ -95,8 +92,7 @@ while var:
         var = False
 
     elif option == 'b':
-        # Export to CSV
-        # Assuming res is a flat list
+        # export options in column and occurrences to csv + user defined filename + error checking for already opened files and invalid filename characters
         var1 = True
         while var1:
             try:
@@ -112,7 +108,7 @@ while var:
                     var = False
                     var1 = False
                 except PermissionError:
-                    print(colour.RED+'ERROR: It seems the CSV file you are trying to write to is already open in another program, please close it amd try again. ')
+                    print(colour.RED+'ERROR: It seems the csv file you are trying to write to is already open in another program or you do not have permission to edit it, please close it or get permission and try again. ')
             except OSError:
                 print(colour.RED+"ERROR: That is not a valid file name, please make sure you are using valid characters in the filename and try again "+colour.YELLOW+'(\/:*?"<>| are not valid characters in Windows). '+colour.END)
     else:
