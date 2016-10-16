@@ -1,13 +1,23 @@
 # Ecocampus JMSS compsci2016 Tools
 
 These error checking scripts are designed to be used with Atlas of Living Australia and Monash Ecocampus data to make your life a little easier. 
+
 ## Prerequisites
 
 All scripts in this repo require Python 3.5 or higher (3.4 will probably work but is untested). 
 
+Instructions here: https://www.python.org/downloads/
+
 EcocampusAnalysis.py & EcocampusAnalysis-NoColour.py require the Plotly library be installed as well as Python. 
 
 Instructions here: https://plot.ly/python/getting-started/
+
+## Intro EcocampusAnalysis.py & EcocampusAnalysis-NoColour.py
+
+These scripts take column data in csv files and count the occurrence of different entries. 
+They then prompt you to export the occurrence data to another csv file or plot it using Plotly. 
+
+NOTE: the -NoColour script is for use in command Windows where colouring is not supported. 
 
 ## Usage EcocampusAnalysis.py & EcocampusAnalysis-NoColour.py
 
@@ -22,3 +32,7 @@ Instructions here: https://plot.ly/python/getting-started/
 Atlas of Living Australia
 
 Plotly
+
+JMSS
+
+Monash University
